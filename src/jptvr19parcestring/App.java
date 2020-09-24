@@ -5,6 +5,8 @@
  */
 package jptvr19parcestring;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Melnikov
@@ -12,5 +14,57 @@ package jptvr19parcestring;
 class App {
     public void run(){
         System.out.println("--- Работа со строкой ---");
+//        Задание: Программа просит ввести строку и 
+//        1. выводит количество символов в строке
+//        2. удаляет указанную подстроку.
+//        3. заменяет указанную подстроку на другую
+//        4. удаляет все теги html из строки
+//        5. удаляет указанный тэг из строки 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите строку: ");
+        String str = scanner.nextLine();
+        System.out.println("Программа может выполнить следующие задачи: ");
+        System.out.println("1. вывести количество символов в строке");
+        System.out.println("2. удалить указанную подстроку");
+        System.out.println("3. заменить указанную подстроку на другую");
+        System.out.println("4. удалить все теги html из строки");
+        System.out.println("5. удалить указанный тэг из строки");
+        System.out.println("Выберите задачу: ");
+        String task = scanner.nextLine();
+        switch (task) {
+            case "1":
+                System.out.println("1. вывести количество символов в строке");
+                System.out.println("В строке "+str.length()+" символов");
+                System.out.println("букв: " + this.getCountLetters(str));
+                break;
+            case "2":
+                System.out.println("2. удалить указанную подстроку");
+                break;
+            case "3":
+                System.out.println("3. заменить указанную подстроку на другую");
+                break;
+            case "4":
+                System.out.println("4. удалить все теги html из строки");
+                break;
+            case "5":
+                System.out.println("5. удалить указанный тэг из строки");
+                break;
+            default:
+                System.out.println("Нет такой задачи.");;
+        }
+        System.out.println("=== конец программы ===");
+    }
+
+    private int getCountLetters(String str) {
+        char[] chStr = str.toCharArray();
+        int n = 0;
+        for (int i = 0; i < chStr.length; i++) {
+            if(chStr[i] != ' ' && chStr[i] != ','
+                && chStr[i] != '.'&& chStr[i] != ':'
+                && chStr[i] != ';'){
+                n++;
+            }
+        }
+        return n;
     }
 }
